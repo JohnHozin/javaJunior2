@@ -11,9 +11,9 @@ public class Main3 {
             e.printStackTrace();
             System.out.println("Введите нормальные числа");
         }
-
-
-        System.out.println("Конец программы");
+        System.out.println("Конец");
+        System.out.println("Конец 1");
+        System.out.println("Конец 2 ");
 
 
 

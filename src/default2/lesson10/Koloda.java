@@ -7,6 +7,10 @@ import java.util.ArrayList;
 public class Koloda implements IKoloda{
     ArrayList<Card> cards = new ArrayList<>(); // безразмерный массив с картами
 
+    public Koloda(){
+        this.prepareCards();
+    }
+
     public  void prepareCards(){
         cards.add(new Card("Двойка трефа",2));
         cards.add(new Card("Двойка черви",2));
@@ -53,10 +57,10 @@ public class Koloda implements IKoloda{
         cards.add(new Card("Десятка пики",10));
         cards.add(new Card("Десятка буби",10));
 
-        cards.add(new Card("Валет трефа",2));
-        cards.add(new Card("Валет черви",2));
-        cards.add(new Card("Валет пики",2));
-        cards.add(new Card("Валет буби",2));
+        cards.add(new Card("Валет трефа",10));
+        cards.add(new Card("Валет черви",10));
+        cards.add(new Card("Валет пики",10));
+        cards.add(new Card("Валет буби",10));
 
         cards.add(new Card("Дама трефа",10));
         cards.add(new Card("Дама черви",10));

@@ -32,7 +32,7 @@ public class Main3 {
         System.out.println();
         double[] d = new double[1];
         try {
-            d = utils.findNumbers("bikyhkuyhgvk 124 bkhbkhb2.4 hblkbv124,jhkh42.4 jkhbib 4.424 43. 43 dedf .3");
+            d = utils.findNumbers("bikyhkuyhgvk124 bkhbkhb2.4 hblkbv124,jhkh42.4 jkhbib 4.424 43. 43 dedf .3");
         } catch (Exception e) {
             e.printStackTrace();
         }

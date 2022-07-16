@@ -3,6 +3,7 @@ package default2.lesson10;
 import lesson6.blackdjek.Karta;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Koloda implements IKoloda{
     ArrayList<Card> cards = new ArrayList<>(); // безразмерный массив с картами
@@ -78,7 +79,9 @@ public class Koloda implements IKoloda{
         cards.add(new Card("Туз буби",11));
     }
     @Override
-    public void getRandomKart() {
-
+    public Card getRandomKart() {
+        // дом задание - сделать так чтобы колода уменьшалась и удалялись карты которые мы уже вытянули
+        int index = ThreadLocalRandom.current().nextInt(0, cards.size());
+        return cards.get(index);
     }
 }

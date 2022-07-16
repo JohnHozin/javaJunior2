@@ -17,4 +17,6 @@ public interface IPlayer {
     void openHand();
 
     void setName(String name);
+
+    String getNamePlayer();
 }

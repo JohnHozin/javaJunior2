@@ -7,7 +7,8 @@ public class Main {
         Player player1 = new Player();
         Player player2 = new Player();
         player1.setName("Вася");
-        player1.setName("Петя");
+        player2.setName("Петя");
+        dealer.setName("Диллер");
 
         blackJack.addPlayerToGame(player1);
         blackJack.addPlayerToGame(player2);

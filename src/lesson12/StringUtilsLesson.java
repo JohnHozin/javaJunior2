@@ -63,7 +63,6 @@ public class StringUtilsLesson implements StringUtils {
         for (int i = 0; i < arrayListNum.size(); i++) {
             arrNumbers[i] = arrayListNum.get(i);
         }
-        System.out.println("1241");
 
         return arrNumbers;
     }

@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Player implements IPlayer {
     private String name;
     private ArrayList<Card> hand = new ArrayList<>();
+    private boolean canWin = true;
 
     @Override
     public void addCardToHand(Card card) {
@@ -31,6 +32,14 @@ public class Player implements IPlayer {
         for (Card c : hand) {
             System.out.println(c.getName());
         }
+    }
+
+    public boolean isCanWin() {
+        return canWin;
+    }
+
+    public void setCanWin(boolean canWin) {
+        this.canWin = canWin;
     }
 
     @Override

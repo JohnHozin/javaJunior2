@@ -1,16 +1,18 @@
 package default2.lesson13;
 
-import java.util.List;
+import java.util.*;
 
 public class ListUtils implements IListUtils{
 
     @Override
     public List<String> asList(String... strings) throws IllegalArgumentException {
-        return null;
+        return new ArrayList<>(Arrays.asList(strings));
     }
 
     @Override
     public List<Double> sortedList(List<Double> data) throws IllegalArgumentException {
-        return null;
+        ArrayList<Double> sortList = new ArrayList<>(data);
+        sortList.sort(Comparator.reverseOrder());
+        return sortList;
     }
 }

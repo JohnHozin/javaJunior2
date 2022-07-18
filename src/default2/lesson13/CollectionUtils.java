@@ -11,9 +11,11 @@ public class CollectionUtils implements ICollectionUtils{
     public Collection<Integer> union(Collection<Integer> a, Collection<Integer> b)
             throws NullPointerException {
         if (a.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'a' пуста");
+            System.out.println(("Коллекция 'a' пуста"));
+            return null;
         } else if (b.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'b' пуста");
+            System.out.println(("Коллекция 'b' пуста"));
+            return null;
         } else {
             ArrayList<Integer> arrUnion = new ArrayList<>();
             arrUnion.addAll(a);
@@ -26,9 +28,11 @@ public class CollectionUtils implements ICollectionUtils{
     public Collection<Integer> intersection(Collection<Integer> a, Collection<Integer> b)
             throws NullPointerException {
         if (a.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'a' пуста");
+            System.out.println(("Коллекция 'a' пуста"));
+            return null;
         } else if (b.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'b' пуста");
+            System.out.println(("Коллекция 'b' пуста"));
+            return null;
         } else {
             Collection<Integer> arrIntersection = new ArrayList<>(a);
             arrIntersection.retainAll(b);
@@ -40,9 +44,11 @@ public class CollectionUtils implements ICollectionUtils{
     public Set<Integer> unionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b)
             throws NullPointerException {
         if (a.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'a' пуста");
+            System.out.println(("Коллекция 'a' пуста"));
+            return null;
         } else if (b.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'b' пуста");
+            System.out.println(("Коллекция 'b' пуста"));
+            return null;
         } else {
             HashSet<Integer> arrUnionWithout = new HashSet<>();
             arrUnionWithout.addAll(a);
@@ -55,9 +61,11 @@ public class CollectionUtils implements ICollectionUtils{
     public Set<Integer> intersectionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b)
             throws NullPointerException {
         if (a.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'a' пуста");
+            System.out.println(("Коллекция 'a' пуста"));
+            return null;
         } else if (b.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'b' пуста");
+            System.out.println(("Коллекция 'b' пуста"));
+            return null;
         } else {
             HashSet<Integer> arrIntersectionWithout = new HashSet<>(a);
             arrIntersectionWithout.retainAll(b);
@@ -69,13 +77,15 @@ public class CollectionUtils implements ICollectionUtils{
     public Collection<Integer> difference(Collection<Integer> a, Collection<Integer> b)
             throws NullPointerException {
         if (a.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'a' пуста");
+            System.out.println(("Коллекция 'a' пуста"));
+            return null;
         } else if (b.isEmpty()) {
-            throw new IllegalArgumentException("Коллекция 'b' пуста");
+            System.out.println(("Коллекция 'b' пуста"));
+            return null;
         } else {
-            Collection<Integer> arrDifference = new ArrayList<>(union(a, b));        // Collection<Integer> arrDifference = new ArrayList<>(a);
-            arrDifference.removeAll(intersection(a, b));                             // arrDifference.removeAll(b);
-            return arrDifference;                                                    // так получится разность c = a - b
+            Collection<Integer> arrDifference = new ArrayList<>(a);
+            arrDifference.removeAll(b);
+            return arrDifference;
         }
     }
 }

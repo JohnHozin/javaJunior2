@@ -8,7 +8,7 @@ public class Main3 {
         // ListUtils
         ListUtils listUtils = new ListUtils();
         List<String> listUtilsHelp1;
-        listUtilsHelp1 = listUtils.asList("123","456","789", "qwe" ,"rty");
+        listUtilsHelp1 = listUtils.asList("123","456","789","34", "qwe" ,"rty" , "a", "c" , "b");
         System.out.println(listUtilsHelp1);
 
         List<Double> listUtilsHelp2 = new ArrayList<>();
@@ -22,7 +22,12 @@ public class Main3 {
 
         // SetUtils
         SetUtils setUtils = new SetUtils();
-        Collection collection = new ArrayList(listUtilsHelp2);
+        List<Integer> setUtilsHelp = new ArrayList<>();
+        setUtilsHelp.add(2);
+        setUtilsHelp.add(4);
+        setUtilsHelp.add(6);
+        setUtilsHelp.add(3);
+        Collection collection = new ArrayList(setUtilsHelp);
         Set set = new HashSet<>(listUtilsHelp1);
         collection = setUtils.orderedSet(collection,set);
         System.out.println(collection);

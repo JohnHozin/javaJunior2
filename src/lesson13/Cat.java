@@ -1,6 +1,6 @@
 package lesson13;
 
-public class Cat extends Animal{
+public class Cat extends Animal {
     public Cat(String name, String color, int age, int weight) {
         super(name, color, age, weight);
     }

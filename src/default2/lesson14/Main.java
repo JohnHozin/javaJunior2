@@ -8,7 +8,11 @@ public class Main {
         String text = "Hello world!";
         try {
             FileOutputStream fos = new FileOutputStream("C://Java/test.txt");
-        } catch (FileNotFoundException e) {
+            byte[] buffer = text.getBytes();
+
+            fos.write(buffer, 0 , buffer.length);
+            System.out.println("The file has been written");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

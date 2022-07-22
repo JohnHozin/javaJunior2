@@ -2,11 +2,10 @@ package lesson14;
 
 import java.util.Comparator;
 
-public class SortTovarRateFromTo implements Comparator<Tovar> {
-
+public class SortTovarRateAscending implements Comparator<Tovar> {
 
     @Override
-    public int compare(Tovar o2, Tovar o1) {
+    public int compare(Tovar o1, Tovar o2) {
         if (o1.midRate() != o2.midRate()) {
             return Double.compare(o1.midRate(), o2.midRate());
         }

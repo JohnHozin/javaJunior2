@@ -1,19 +1,49 @@
 package default2.lesson14;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.*;
+import java.net.*;
 
 public class Main {
+    static int chet = 1;
     public static void main(String[] args) {
-        String text = "Hello world!";
-        try {
-            FileOutputStream fos = new FileOutputStream("C://Java/test.txt");
-            byte[] buffer = text.getBytes();
 
-            fos.write(buffer, 0 , buffer.length);
-            System.out.println("The file has been written");
+        try {
+            FileInputStream fin = new FileInputStream("C://Java/ip.txt");
+            int i;
+            String result ="";
+            while ((i=fin.read())!=-1){
+                if (i==13) continue;
+                else if (i==10) {
+                    String ip = result.split(":")[0];
+                    int port = Integer.parseInt(result.split(":")[1]);
+                    checkProxy(ip,port);
+                    Main.chet++;
+                    result = "";
+                }
+                else if (i==9){
+                    result +=":";
+                } else {
+                    result+=(char) i;
+                }
+            }
+            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void checkProxy(String ip,int port){
+//        // каждый второй айпи уходит в отдельный файл
+
+        if (Main.chet%2==0) {
+            String testIP = Main.chet + ") " + ip + ":" + port + "\n";
+            try {
+                FileOutputStream fos = new FileOutputStream("C://Java/testIP.txt", true);
+                byte[] buffer = testIP.getBytes();
+                fos.write(buffer, 0, buffer.length);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

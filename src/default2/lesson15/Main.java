@@ -1,11 +1,10 @@
-package default2.lesson14;
+package default2.lesson15;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.*;
 import java.net.*;
 
-public class Main1 {
+public class Main {
     public static void main(String[] args) {
 
         try {
@@ -17,7 +16,13 @@ public class Main1 {
                 else if (i==10) {
                     String ip = result.split(":")[0];
                     int port = Integer.parseInt(result.split(":")[1]);
-                    checkProxy(ip,port);
+                    Thread thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            checkProxy(ip,port);
+                        }
+                    });
+                    thread.start();
                     result = "";
                 }
                 else if (i==9){
@@ -26,38 +31,13 @@ public class Main1 {
                     result+=(char) i;
                 }
             }
-            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        ///////////// 2 пример //////////////////
-//        try {
-//            FileInputStream fin = new FileInputStream("C://Java/test.txt");
-//            int i;
-//            while ((i=fin.read())!=-1){
-//                System.out.print((char) i);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-//////////////// 1 пример ////////////////////////
-//        String text = "Hello world!";
-//        try {
-//            FileOutputStream fos = new FileOutputStream("C://Java/test.txt",  true);
-//            byte[] buffer = text.getBytes();
-//
-//            fos.write(buffer, 0 , buffer.length);
-//            System.out.println("The file has been written");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
     public static void checkProxy(String ip,int port){
-        //System.out.println("Запрос к серверу с " + ip + ":" + port);
-        // каждый второй айпи уходит в отдельный файл
         try {
             Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(ip, port));
             URL url = new URL("https://vozhzhaev.ru/test.php");
@@ -67,7 +47,6 @@ public class Main1 {
             in.close();
         } catch (Exception e) {
             System.out.println("ip: " + ip + " port: " + port + " - НЕ РАБОТАЕТ!");
-            //e.printStackTrace();
         }
     }
 }
